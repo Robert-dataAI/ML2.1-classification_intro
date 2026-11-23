@@ -7,19 +7,27 @@ c) continuous features ?
 
 2) Confusion matrix:
 a)How many patient were incorrectly diagnosed with a Heart disease (false positives) ?
+ - Regarding the data provided and the model training using `cross_val_predict` (with the training data), I obtained 15 false positives.
+ - Regarding the data provided and the model training using `cross_val_predict` (with the test data), I obtained 15 false positives.
 
 b)How many patient were incorrectly diagnosed as being Healthy (false negatives)?
+ - Regarding the data provided and the model training using `cross_val_predict` (with the training data), I obtained 25 false negatives.
+ - Concernant les données fournies et l'entraînement du modèle à l'aide de `cross_val_predict` (avec les données d'entraînement), j'ai obtenu 25 faux négatifs.
 
 
 3) Changing the threshold:
 a)What is the precision if we change the threshold to have a 0.95 recall ? 
+ - La précision obtenue lors du recalcul (precision_95 = precision_score(y_train, y_cv_pred_95recall)
+print(precision_95)) est de :  Precision: 0.6206896551724138 c'est-à-dire: 62%
 
 b) How many patient were incorrectly diagnosed as being Healthy (false negatives)?
-
+ - Le nombre de patients qui souffrent réellement d'une maladie cardiaque, mais que le modèle a classés comme étant en bonne santé, est: False Negatives: 7
 
 
 4) Choosing an overall metric:
 
 a) If I can compute my test sample probabilities and care more about the positive class, which overall metric should I use to compare classifiers ? 
+ - Je devrais utiliser l'Average Precision (AP). Car Cette métrique résume la courbe Precision-Recall et permet d'évaluer le compromis entre la précision et le rappel pour différents seuils de classification.
 
 b) And if I only have the class predictions and no probabilities ?
+ - Si je dispose uniquement des prédictions de classe et non des probabilités, je devrais utiliser le F1-score. Cette métrique combine la précision et le rappel en une seule valeur.
